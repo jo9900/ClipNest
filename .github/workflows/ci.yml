@@ -1,0 +1,30 @@
+name: macOS
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test
+        run: >-
+          xcodebuild -project ClipNest.xcodeproj -scheme ClipNest
+          -destination 'platform=macOS' -derivedDataPath build
+          CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO test
+      - name: Build universal release
+        run: >-
+          xcodebuild -project ClipNest.xcodeproj -scheme ClipNest
+          -configuration Release -derivedDataPath build
+          ARCHS='arm64 x86_64' ONLY_ACTIVE_ARCH=NO
+          CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO build
+      - name: Package local build
+        run: ditto -c -k --keepParent build/Build/Products/Release/ClipNest.app build/ClipNest.zip
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ClipNest-local-build
+          path: build/ClipNest.zip
+          retention-days: 14
