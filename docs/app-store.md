@@ -1,15 +1,14 @@
 # Mac App Store preparation
 
-Status: version 1.0.0 (build 2) uploaded successfully; **not submitted or approved**.
+Status as of September 15, 2026: version 1.0.0 (build 2) **submitted to App Review**
+and **Waiting for Review**. It is not yet approved or available on the App Store.
 App Store Connect app ID: `6812302284`. Distribution signing and upload succeeded with the owner's team.
 
 Prepared in App Store Connect: English metadata, two current screenshots, Productivity
 category, 4+ age rating, published Data Not Collected privacy label, free pricing,
 and availability in all 175 countries or regions. Build 2 is linked and its encryption
-questionnaire is complete. Review contact details are still required from the owner.
-The submission check reports missing first name, last name, email, and phone number,
-alongside a generic unexpected-submission error. Retry after completing those fields;
-no review submission has been created.
+questionnaire is complete. The owner's review contact details were saved directly
+in App Store Connect. The app is configured to release automatically after approval.
 
 The `docs/screenshots/app-store-light.png` and `app-store-dark.png` files are opaque
 1280 × 800 PNGs composed from actual app-window captures with isolated sample clips.
