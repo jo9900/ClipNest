@@ -29,7 +29,7 @@ final class HistoryPanelController: NSObject, NSWindowDelegate {
         panel.isReleasedWhenClosed = false
         panel.delegate = self
         keyboardMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            guard let self, event.window === self.panel, self.panel.attachedSheet == nil,
+            guard let self, event.window === self.panel,
                   event.modifierFlags.intersection([.command, .option, .control, .shift]).isEmpty else { return event }
             if let editor = self.panel.firstResponder as? NSTextView, editor.hasMarkedText() { return event }
             switch event.keyCode {
@@ -55,7 +55,7 @@ final class HistoryPanelController: NSObject, NSWindowDelegate {
         selection.query = ""
         panel.contentView = NSHostingView(rootView: HistoryPanelView(
             store: store, monitor: monitor, selection: selection, shortcutAvailable: shortcutAvailable,
-            copy: { [weak self] in self?.copy($0) }, clear: { [weak self] in self?.confirmClear() },
+            copy: { [weak self] in self?.copy($0) }, clear: { [weak self] in self?.monitor.clearHistory() },
             settings: { [weak self] in self?.openSettings() }, dismiss: { [weak self] in self?.dismiss() }
         ))
         let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) } ?? NSScreen.main
@@ -68,25 +68,12 @@ final class HistoryPanelController: NSObject, NSWindowDelegate {
     }
 
     func dismiss(restoreFocus: Bool = true) {
-        guard panel.isVisible, panel.attachedSheet == nil else { return }
+        guard panel.isVisible else { return }
         // orderOut synchronously resigns key status; keep the restoration target outside that callback.
         let application = previousApp
         previousApp = nil
         panel.orderOut(nil)
         if restoreFocus { application?.activate(options: []) }
-    }
-
-    func confirmClear() {
-        guard panel.attachedSheet == nil else { return }
-        let alert = NSAlert()
-        alert.messageText = "Clear all history?"
-        alert.informativeText = "This removes all saved clips from this Mac. Your current system clipboard stays available."
-        alert.addButton(withTitle: "Clear All")
-        alert.addButton(withTitle: "Cancel")
-        alert.buttons[0].hasDestructiveAction = true
-        alert.beginSheetModal(for: panel) { [weak self] response in
-            if response == .alertFirstButtonReturn { self?.monitor.clearHistory() }
-        }
     }
 
     func shutdown() {
@@ -95,7 +82,7 @@ final class HistoryPanelController: NSObject, NSWindowDelegate {
     }
 
     func windowDidResignKey(_ notification: Notification) {
-        if panel.attachedSheet == nil { dismiss(restoreFocus: false) }
+        dismiss(restoreFocus: false)
     }
 
     private func copy(_ entry: HistoryEntry) {

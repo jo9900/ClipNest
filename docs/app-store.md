@@ -1,6 +1,7 @@
 # Mac App Store preparation
 
-Status: prepared for owner submission; **not submitted or approved**.
+Status: version 1.0.0 (build 2) uploaded successfully; **not submitted or approved**.
+App Store Connect app ID: `6812302284`. Distribution signing and upload succeeded with the owner's team.
 
 The `docs/screenshots/app-store-light.png` and `app-store-dark.png` files are opaque
 1280 × 800 PNGs composed from actual app-window captures with isolated sample clips.
@@ -15,9 +16,9 @@ build/frame-screenshot input.png output.png light
 
 | Field | Value |
 | --- | --- |
-| Name | ClipNest (confirm availability in App Store Connect) |
+| Name | ClipNest — Clipboard History (ClipNest alone was unavailable) |
 | Subtitle | A home for your last 20 copies |
-| Version / build | 1.0.0 / 1 |
+| Version / build | 1.0.0 / 2 |
 | Bundle ID | com.jo9900.ClipNest |
 | Category | Productivity |
 | Minimum macOS | 13.0 |
@@ -42,6 +43,7 @@ to use again. Your selection goes back onto the clipboard, ready to paste into y
 - Clear all history or delete a single entry.
 - Optional launch at login and pause recording.
 - Local storage, without accounts, analytics, or cloud services.
+- 18 interface languages and regional variants, including Arabic with right-to-left layout.
 
 Supports plain text and links on macOS 13 or later. ClipNest does not automatically
 type into other apps; press Command–V after choosing your clip.
@@ -55,7 +57,7 @@ on the system clipboard; the panel closes and returns focus to the previous app.
 Paste using Command–V. Escape closes the panel without copying.
 
 Use the gear button for launch at login and pause. Right-click the menu bar icon to
-quit. Clear All deletes persisted history and requires confirmation. The system
+quit. Clear All immediately deletes persisted history. The system
 clipboard stays unchanged by Clear All. No login or demo account is required.
 
 The app runs inside App Sandbox with no additional entitlements and no network access.

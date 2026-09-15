@@ -23,9 +23,7 @@ struct HistoryRow: View {
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     HStack(spacing: 6) {
-                        Text(entry.isLink ? "Link" : "Text")
-                        Text("·")
-                        Text(entry.copiedAt, style: .relative)
+                        Text(entry.isLink ? LocalizedStringKey("Link") : "Text")
                         Spacer()
                         if isSelected { Image(systemName: "return").accessibilityHidden(true) }
                     }

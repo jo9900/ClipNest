@@ -24,8 +24,8 @@ clip, return to your app, and paste. No account, cloud service, or subscription.
 
 Search filters the 20 entries. Copying the same text again moves it to the top.
 The oldest entry is removed when the limit is reached. Right-click a row to delete
-it, or use **Clear All** to remove saved history. Clearing history preserves the
-current system clipboard.
+it, or use **Clear All** to immediately remove saved history. Clearing history preserves
+the current system clipboard. Rows show the content and its type, without a ticking timestamp.
 
 Open the gear button for **Launch at login** and **Pause recording**. Right-click
 the menu bar icon for settings, pause, and quit. Startup is opt-in and uses the
@@ -44,6 +44,15 @@ before enabling it.
   history. If access is denied, the app shows recovery instructions.
 - Uses a system hotkey registration, without Accessibility or Input Monitoring
   permission. If ⌥⌘V is already registered elsewhere, the menu bar still works.
+
+## Languages
+
+The interface follows your macOS language preference, including a language selected
+specifically for ClipNest in **System Settings → General → Language & Region → Applications**.
+There are 18 interface localizations: English, Simplified Chinese, Traditional Chinese,
+Japanese, Korean, Spanish, Arabic, Portuguese (Brazil and Portugal), Malay, Vietnamese,
+Indonesian, French, German, Italian, Russian, Hindi, and Thai. Arabic uses a right-to-left
+layout. Copied text is always kept in its original language and form.
 
 ## Privacy
 
@@ -85,7 +94,8 @@ xcodebuild -project ClipNest.xcodeproj -scheme ClipNest \
 
 Tests use a private pasteboard and temporary storage. They cover eviction,
 deduplication, exact text restoration, corrupt files, storage errors, sensitive
-markers, pause/resume, self-copy suppression, clearing, search, and navigation.
+markers, pause/resume, self-copy suppression, clearing, search, navigation, and loading
+every bundled translation with compatible format arguments.
 Debug-only `CLIPNEST_PREVIEW=1` supplies isolated sample history for screenshots;
 `CLIPNEST_PREVIEW=empty` shows onboarding. Both leave the general clipboard untouched.
 
@@ -98,7 +108,7 @@ Debug-only `CLIPNEST_PREVIEW=1` supplies isolated sample history for screenshots
 | `ClipNest/Services` | Clipboard polling, global shortcut, login item |
 | `ClipNest/History` | Centered panel, rows, search and selection |
 | `ClipNest/Settings` | Native preferences |
-| `ClipNest/Resources` | Icons, app configuration, sandbox and privacy manifest |
+| `ClipNest/Resources` | Icons, native `.lproj` translations, configuration and privacy |
 | `ClipNestTests` | Behavior tests |
 | `Artwork` | Icon source and generation provenance |
 
@@ -111,3 +121,5 @@ Apple Developer Program membership is separate.
 
 Contributions: open an issue with a reproducible case, or a small pull request with
 relevant validation. Keep files focused and avoid adding dependencies for native features.
+For translations, edit the matching `Resources/<language>.lproj/Localizable.strings`.
+Keep the English keys and format placeholders unchanged; each language has its own short file.

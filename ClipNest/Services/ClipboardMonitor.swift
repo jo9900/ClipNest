@@ -66,7 +66,7 @@ final class ClipboardMonitor: NSObject, ObservableObject {
         if #available(macOS 15.4, *) {
             let behavior = pasteboard.accessBehavior
             if behavior == .alwaysDeny || (behavior == .ask && !userInitiated) {
-                let issue = "Allow ClipNest in System Settings → Privacy & Security → Paste from Other Apps for background history."
+                let issue = String(localized: "Allow ClipNest in System Settings → Privacy & Security → Paste from Other Apps for background history.")
                 if accessIssue != issue { accessIssue = issue }
                 return
             }
@@ -86,7 +86,7 @@ final class ClipboardMonitor: NSObject, ObservableObject {
         pasteboard.clearContents()
         let succeeded = pasteboard.setString(entry.text, forType: .string)
         lastChange = pasteboard.changeCount
-        copyIssue = succeeded ? nil : "Could not copy this entry. Please try again."
+        copyIssue = succeeded ? nil : String(localized: "Could not copy this entry. Please try again.")
         return succeeded
     }
 

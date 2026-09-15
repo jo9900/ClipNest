@@ -21,7 +21,13 @@ struct SettingsView: View {
                 }
                 Toggle("Pause recording", isOn: Binding(get: { monitor.isPaused }, set: { _ in monitor.togglePause() }))
                     .disabled(!monitor.hasStarted)
-                LabeledContent("Open history", value: shortcutAvailable ? "⌥⌘V" : "Menu bar (shortcut in use)")
+                LabeledContent {
+                    if shortcutAvailable {
+                        Text(verbatim: "⌥⌘V").environment(\.layoutDirection, .leftToRight)
+                    } else {
+                        Text("Menu bar (shortcut in use)")
+                    }
+                } label: { Text("Open history") }
             } header: { Text("General") }
             Section {
                 Text("Up to 20 text clips and links are saved on this Mac, including across restarts. Older clips are removed automatically.")
@@ -41,6 +47,8 @@ struct SettingsView: View {
             }
         }
         .formStyle(.grouped)
+        .environment(\.layoutDirection, Locale.Language(identifier: Bundle.main.preferredLocalizations.first ?? "en")
+            .characterDirection == .rightToLeft ? .rightToLeft : .leftToRight)
         .frame(width: 440, height: 420)
         .onAppear { login.refresh() }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in

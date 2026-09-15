@@ -16,7 +16,7 @@ final class LoginItemManager: ObservableObject {
             else { try SMAppService.mainApp.unregister() }
             issue = nil
         } catch {
-            issue = "Launch at login could not be changed: \(error.localizedDescription)"
+            issue = String(localized: "Launch at login could not be changed: \(error.localizedDescription)")
         }
         refresh()
     }

@@ -2,7 +2,7 @@
 
 ## Result
 
-Seven behavior tests pass. Debug and universal Release builds succeed with Xcode
+Eight behavior/resource tests pass. Debug and universal Release builds succeed with Xcode
 26.6 on macOS 26.6.2. The Release executable contains `arm64` and `x86_64` slices;
 its only entitlement is App Sandbox. A development-signed archive also succeeds.
 
@@ -22,6 +22,10 @@ selection, clipboard write, panel dismissal, and restoration of the previous app
 - Pause is persisted so relaunching does not silently resume recording.
 - Release signing no longer injects the development debugger entitlement.
 - Clipboard access status changes publish only when the message actually changes.
+- Dynamic SwiftUI labels and AppKit/service messages now load native translations.
+- AppKit-hosted views explicitly use the selected language's writing direction;
+  runtime inspection caught and corrected Arabic text appearing in an LTR layout.
+- Per the owner's update, Clear All acts immediately and row timestamps are removed.
 
 ## Checks completed
 
@@ -33,11 +37,15 @@ selection, clipboard write, panel dismissal, and restoration of the previous app
 - Selection: case/diacritic-insensitive search, empty results, navigation bounds,
   and a selected entry being deleted.
 - Runtime: global shortcut from Finder, search, Return/dismissal and focus return,
-  native settings, clear confirmation/cancel/clear, light and dark appearance.
+  native settings, immediate clearing, light and dark appearance.
 - Login Items registration enabled successfully and then disabled again, verified
   by the settings switch. No actual logout/login was performed.
 - Plists validate; Release code signature verifies; screenshots export as opaque
   1280 × 800 PNGs. UI review uses an isolated clipboard and sample history.
+- All 18 compiled localizations load the complete key set and preserve format arguments.
+  Chinese lookup, mixed-script interpolation, and Traditional Chinese locale selection pass.
+- Chinese panel, German onboarding, and Arabic panel/settings/empty state were inspected at runtime.
+  Arabic clearing immediately changes the count from 5 to 0, without a dialog.
 
 ## Remaining validation
 
@@ -47,5 +55,7 @@ selection, clipboard write, panel dismissal, and restoration of the previous app
   behavior on the owner's arrangement.
 - Exercise the macOS clipboard permission dialog's denial and approval paths on
   a fresh signed install. Current automated tests use a private pasteboard.
-- App Store distribution signing, upload and Apple review require a working Xcode
-  account session and the corresponding distribution assets.
+- Distribution export succeeds after the owner signed in to Xcode. App Store upload
+  and review status are tracked in `app-store.md`.
+- Translations have automated resource checks and sampled visual review, but have
+  not all been independently reviewed by native speakers.

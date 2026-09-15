@@ -39,7 +39,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = item.button {
             button.image = NSImage(systemSymbolName: "square.on.square", accessibilityDescription: "ClipNest")
             button.image?.isTemplate = true
-            button.toolTip = "ClipNest — Clipboard History (⌥⌘V)"
+            button.toolTip = String(localized: "ClipNest — Clipboard History (⌥⌘V)")
             button.target = self
             button.action = #selector(statusClicked)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
@@ -67,11 +67,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         guard let event = NSApp.currentEvent, let button = statusItem?.button else { return }
         if event.type == .rightMouseUp {
             let menu = NSMenu()
-            menu.addItem(item("Open History", action: #selector(openHistory)))
-            menu.addItem(item(monitor.isPaused ? "Resume Recording" : "Pause Recording", action: #selector(togglePause)))
+            menu.addItem(item(String(localized: "Open History"), action: #selector(openHistory)))
+            menu.addItem(item(monitor.isPaused ? String(localized: "Resume Recording") : String(localized: "Pause Recording"), action: #selector(togglePause)))
             menu.addItem(.separator())
-            menu.addItem(item("Settings…", action: #selector(openSettings)))
-            menu.addItem(item("Quit ClipNest", action: #selector(quit)))
+            menu.addItem(item(String(localized: "Settings…"), action: #selector(openSettings)))
+            menu.addItem(item(String(localized: "Quit ClipNest"), action: #selector(quit)))
             NSMenu.popUpContextMenu(menu, with: event, for: button)
         } else {
             panel.toggle()
@@ -92,7 +92,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if settingsWindow == nil {
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 440, height: 420),
                                   styleMask: [.titled, .closable], backing: .buffered, defer: false)
-            window.title = "ClipNest Settings"
+            window.title = String(localized: "ClipNest Settings")
             window.isReleasedWhenClosed = false
             window.contentView = NSHostingView(rootView: SettingsView(monitor: monitor, login: login,
                                                                      shortcutAvailable: shortcut?.isRegistered == true))

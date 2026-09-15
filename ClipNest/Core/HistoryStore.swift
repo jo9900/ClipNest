@@ -49,7 +49,7 @@ final class HistoryStore: ObservableObject {
             canSave = true
             return true
         } catch {
-            storageIssue = "Could not clear saved history. Check available disk access and try again."
+            storageIssue = String(localized: "Could not clear saved history. Check available disk access and try again.")
             return false
         }
     }
@@ -74,7 +74,7 @@ final class HistoryStore: ObservableObject {
             }.prefix(Self.capacity))
         } catch {
             canSave = false
-            storageIssue = "Saved history could not be read. New copies stay in memory. Clear All to start fresh."
+            storageIssue = String(localized: "Saved history could not be read. New copies stay in memory. Clear All to start fresh.")
         }
     }
 
@@ -90,7 +90,7 @@ final class HistoryStore: ObservableObject {
             try FileManager.default.setAttributes([.posixPermissions: 0o600], ofItemAtPath: fileURL.path)
             storageIssue = nil
         } catch {
-            storageIssue = "History is in memory, but could not be saved. Check disk space and folder access."
+            storageIssue = String(localized: "History is in memory, but could not be saved. Check disk space and folder access.")
         }
     }
 }

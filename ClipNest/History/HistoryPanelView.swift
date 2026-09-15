@@ -52,6 +52,8 @@ struct HistoryPanelView: View {
             footer.padding(.horizontal, 20).padding(.vertical, 12)
         }
         .background(Color(nsColor: .windowBackgroundColor))
+        .environment(\.layoutDirection, Locale.Language(identifier: Bundle.main.preferredLocalizations.first ?? "en")
+            .characterDirection == .rightToLeft ? .rightToLeft : .leftToRight)
         .ignoresSafeArea(edges: .top)
         .onAppear { DispatchQueue.main.async { searchFocused = true } }
         .onExitCommand(perform: dismiss)
@@ -62,8 +64,8 @@ struct HistoryPanelView: View {
             Image(nsImage: NSApplication.shared.applicationIconImage)
                 .resizable().frame(width: 36, height: 36).accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 3) {
-                Text("ClipNest").font(.system(size: 18, weight: .semibold))
-                Text(monitor.isPaused ? "Recording paused" : "A home for your last 20 copies")
+                Text(verbatim: "ClipNest").font(.system(size: 18, weight: .semibold))
+                Text(monitor.isPaused ? LocalizedStringKey("Recording paused") : "A home for your last 20 copies")
                     .font(.system(size: 11)).foregroundStyle(.secondary)
             }
             Spacer()
@@ -108,7 +110,7 @@ struct HistoryPanelView: View {
 
     private var footer: some View {
         HStack {
-            Text(shortcutAvailable ? "↑↓ browse   ↩ copy   esc close" : "Open from the menu bar · shortcut unavailable")
+            Text(shortcutAvailable ? LocalizedStringKey("↑↓ browse   ↩ copy   esc close") : "Open from the menu bar · shortcut unavailable")
                 .font(.system(size: 10)).foregroundStyle(.secondary)
             Spacer(minLength: 4)
             Button(action: clear) { Label("Clear All", systemImage: "trash").font(.system(size: 11)) }
@@ -118,12 +120,12 @@ struct HistoryPanelView: View {
         }
     }
 
-    private func emptyState<Actions: View>(symbol: String, title: String, detail: String,
+    private func emptyState<Actions: View>(symbol: String, title: LocalizedStringKey, detail: LocalizedStringKey,
                                            @ViewBuilder actions: () -> Actions) -> some View {
         VStack(spacing: 14) {
             Spacer()
             Image(systemName: symbol).font(.system(size: 34, weight: .light)).foregroundStyle(Color.accentColor)
-            Text(title).font(.system(size: 17, weight: .semibold))
+            Text(title).font(.system(size: 17, weight: .semibold)).multilineTextAlignment(.center)
             Text(detail).font(.system(size: 12)).foregroundStyle(.secondary).multilineTextAlignment(.center)
             actions().padding(.top, 5)
             Spacer()
