@@ -37,9 +37,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         panel.shortcutAvailable = shortcut?.isRegistered == true
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = item.button {
-            button.image = NSImage(systemSymbolName: "square.on.square", accessibilityDescription: "ClipNest")
+            button.image = NSImage(systemSymbolName: "square.on.square", accessibilityDescription: "Copiary Clipboard")
             button.image?.isTemplate = true
-            button.toolTip = String(localized: "ClipNest — Clipboard History (⌥⌘V)")
+            button.toolTip = String(localized: "Copiary Clipboard (⌥⌘V)")
             button.target = self
             button.action = #selector(statusClicked)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
@@ -71,7 +71,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             menu.addItem(item(monitor.isPaused ? String(localized: "Resume Recording") : String(localized: "Pause Recording"), action: #selector(togglePause)))
             menu.addItem(.separator())
             menu.addItem(item(String(localized: "Settings…"), action: #selector(openSettings)))
-            menu.addItem(item(String(localized: "Quit ClipNest"), action: #selector(quit)))
+            menu.addItem(item(String(localized: "Quit Copiary Clipboard"), action: #selector(quit)))
             NSMenu.popUpContextMenu(menu, with: event, for: button)
         } else {
             panel.toggle()
@@ -92,7 +92,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if settingsWindow == nil {
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 440, height: 420),
                                   styleMask: [.titled, .closable], backing: .buffered, defer: false)
-            window.title = String(localized: "ClipNest Settings")
+            window.title = String(localized: "Copiary Clipboard Settings")
             window.isReleasedWhenClosed = false
             window.contentView = NSHostingView(rootView: SettingsView(monitor: monitor, login: login,
                                                                      shortcutAvailable: shortcut?.isRegistered == true))

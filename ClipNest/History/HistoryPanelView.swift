@@ -64,7 +64,7 @@ struct HistoryPanelView: View {
             Image(nsImage: NSApplication.shared.applicationIconImage)
                 .resizable().frame(width: 36, height: 36).accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 3) {
-                Text(verbatim: "ClipNest").font(.system(size: 18, weight: .semibold))
+                Text(verbatim: "Copiary Clipboard").font(.system(size: 18, weight: .semibold))
                 Text(monitor.isPaused ? LocalizedStringKey("Recording paused") : "A home for your last 20 copies")
                     .font(.system(size: 11)).foregroundStyle(.secondary)
             }

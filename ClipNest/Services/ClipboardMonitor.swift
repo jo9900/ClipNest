@@ -66,7 +66,7 @@ final class ClipboardMonitor: NSObject, ObservableObject {
         if #available(macOS 15.4, *) {
             let behavior = pasteboard.accessBehavior
             if behavior == .alwaysDeny || (behavior == .ask && !userInitiated) {
-                let issue = String(localized: "Allow ClipNest in System Settings → Privacy & Security → Paste from Other Apps for background history.")
+                let issue = String(localized: "Allow Copiary Clipboard in System Settings → Privacy & Security → Paste from Other Apps for background history.")
                 if accessIssue != issue { accessIssue = issue }
                 return
             }

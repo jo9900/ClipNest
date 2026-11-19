@@ -10,9 +10,9 @@ struct SettingsView: View {
         Form {
             Section {
                 Toggle("Launch at login", isOn: Binding(get: { login.isEnabled }, set: login.setEnabled))
-                    .help("Start ClipNest quietly in the menu bar when you log in")
+                    .help("Start Copiary Clipboard quietly in the menu bar when you log in")
                 if login.status == .requiresApproval {
-                    Text("Approve ClipNest in Login Items to finish enabling startup.")
+                    Text("Approve Copiary Clipboard in Login Items to finish enabling startup.")
                         .font(.callout).foregroundStyle(.secondary)
                     Button("Open Login Items Settings", action: login.openSettings)
                 }
@@ -41,9 +41,9 @@ struct SettingsView: View {
             .font(.system(size: 12))
             .foregroundStyle(.secondary)
             HStack {
-                Text("ClipNest 1.0 · Free & open source").font(.caption).foregroundStyle(.secondary)
+                Text("Copiary Clipboard 1.0 · Free & open source").font(.caption).foregroundStyle(.secondary)
                 Spacer()
-                Button("Quit ClipNest") { NSApp.terminate(nil) }
+                Button("Quit Copiary Clipboard") { NSApp.terminate(nil) }
             }
         }
         .formStyle(.grouped)
