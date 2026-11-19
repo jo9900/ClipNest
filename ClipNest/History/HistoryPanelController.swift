@@ -18,7 +18,7 @@ final class HistoryPanelController: NSObject, NSWindowDelegate {
         panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: 560, height: 520),
                         styleMask: [.titled, .fullSizeContentView], backing: .buffered, defer: false)
         super.init()
-        panel.title = "ClipNest"
+        panel.title = "Copiary Clipboard"
         panel.titleVisibility = .hidden
         panel.titlebarAppearsTransparent = true
         panel.isMovable = false

@@ -1,4 +1,4 @@
-# ClipNest
+# Copiary Clipboard
 
 一个轻量的 macOS 剪贴板历史工具，Swift 原生开发，MIT 开源。
 

@@ -21,6 +21,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jo9900.ClipNest
+        PRODUCT_NAME: Copiary Clipboard
+        PRODUCT_MODULE_NAME: ClipNest
         INFOPLIST_FILE: ClipNest/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: ClipNest/Resources/ClipNest.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -41,5 +43,5 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jo9900.ClipNestTests
         GENERATE_INFOPLIST_FILE: YES
-        TEST_HOST: $(BUILT_PRODUCTS_DIR)/ClipNest.app/Contents/MacOS/ClipNest
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/Copiary Clipboard.app/Contents/MacOS/Copiary Clipboard
         BUNDLE_LOADER: $(TEST_HOST)

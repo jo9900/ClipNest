@@ -19,11 +19,24 @@ swiftc scripts/frame-screenshot.swift -o build/frame-screenshot
 build/frame-screenshot input.png output.png light
 ```
 
+## Rename to Copiary Clipboard (November 2026)
+
+Apple Legal complaint APP287962-F: the name "ClipNest" conflicts with EU trade mark
+No. 019184761 (registered 27 August 2025, classes 9 and 42). The app is renamed to
+**Copiary Clipboard** everywhere users can see it. Internal identifiers stay unchanged so
+the existing App Store record and users' saved history keep working: bundle ID
+`com.jo9900.ClipNest`, Swift module and Xcode target/scheme `ClipNest`, and the
+`Application Support/ClipNest` history folder.
+
+To finish in App Store Connect (owner action): change the app name to "Copiary Clipboard"
+in every localization, remove "ClipNest" from subtitle, description, keywords and
+screenshots, and submit the new build with that metadata.
+
 ## App record
 
 | Field | Value |
 | --- | --- |
-| Name | ClipNest — Clipboard History (ClipNest alone was unavailable) |
+| Name | Copiary Clipboard (renamed from "ClipNest — Clipboard History" in November 2026 after EU trademark complaint APP287962-F) |
 | Subtitle | A home for your last 20 copies |
 | Version / build | 1.0.0 / 2 |
 | Bundle ID | com.jo9900.ClipNest |
@@ -40,7 +53,7 @@ build/frame-screenshot input.png output.png light
 
 Keep the useful things you copy within reach.
 
-ClipNest saves your latest 20 text clips and links in a quiet, centered panel. Open
+Copiary Clipboard saves your latest 20 text clips and links in a quiet, centered panel. Open
 it with Option–Command–V or the menu bar, search your recent copies, and choose one
 to use again. Your selection goes back onto the clipboard, ready to paste into your app.
 
@@ -52,12 +65,12 @@ to use again. Your selection goes back onto the clipboard, ready to paste into y
 - Local storage, without accounts, analytics, or cloud services.
 - 18 interface languages and regional variants, including Arabic with right-to-left layout.
 
-Supports plain text and links on macOS 13 or later. ClipNest does not automatically
+Supports plain text and links on macOS 13 or later. Copiary Clipboard does not automatically
 type into other apps; press Command–V after choosing your clip.
 
 ## Review notes
 
-ClipNest is a menu bar application (LSUIElement). After launch, click Start Saving
+Copiary Clipboard is a menu bar application (LSUIElement). After launch, click Start Saving
 History, then copy text in another app. Open the history panel by clicking the menu
 bar icon or pressing Option–Command–V. Click a row or press Return to put that text
 on the system clipboard; the panel closes and returns focus to the previous app.
@@ -69,7 +82,7 @@ clipboard stays unchanged by Clear All. No login or demo account is required.
 
 The app runs inside App Sandbox with no additional entitlements and no network access.
 It uses NSPasteboard, a registered Carbon hotkey, and SMAppService.mainApp for login.
-On systems with pasteboard access restrictions, grant ClipNest ongoing clipboard
+On systems with pasteboard access restrictions, grant Copiary Clipboard ongoing clipboard
 access in System Settings. It does not request Accessibility permission or inject
 keyboard input into other applications.
 

@@ -21,7 +21,7 @@ The owner also wants a public GitHub repository under jo9900 and a free Mac App 
 - Keep the latest 20 entries, evict the oldest, and clear all immediately without a confirmation.
 - Rows show content and type; no ticking timestamp or countdown.
 - Optional launch at login. Keep source files small and responsibilities separate.
-- Confirmed name and content scope: ClipNest, text and links.
+- Confirmed name and content scope: Copiary Clipboard (formerly ClipNest; renamed November 2026 because of an EU trademark conflict), text and links. Do not reintroduce "ClipNest" in any user-facing text or store metadata.
 - Follow macOS language preferences, with 18 interface localizations and Arabic RTL layout.
 - Implementation defaults: local persistent history, macOS 13 and later,
   Intel and Apple silicon.

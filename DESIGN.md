@@ -1,4 +1,4 @@
-# ClipNest design
+# Copiary Clipboard design
 
 A quiet native macOS utility. The owner's fixed, centered selection panel and simple
 icon define the direction; system interaction conventions take priority over decoration.

@@ -1,24 +1,24 @@
-<p align="center"><img src="Artwork/AppIcon.png" width="112" alt="ClipNest icon"></p>
-<h1 align="center">ClipNest</h1>
+<p align="center"><img src="Artwork/AppIcon.png" width="112" alt="Copiary Clipboard icon"></p>
+<h1 align="center">Copiary Clipboard</h1>
 <p align="center">A small home for your last 20 copies.</p>
 <p align="center">Native macOS · Swift · Free & open source · MIT</p>
 
 [中文说明](README.zh-CN.md)
 
-ClipNest keeps the text and links you copy in a small, centered panel. Choose a
+Copiary Clipboard keeps the text and links you copy in a small, centered panel. Choose a
 clip, return to your app, and paste. No account, cloud service, or subscription.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/app-store-dark.png">
-  <img src="docs/screenshots/app-store-light.png" alt="ClipNest history panel with five example clips" width="800">
+  <img src="docs/screenshots/app-store-light.png" alt="Copiary Clipboard history panel with five example clips" width="800">
 </picture>
 
 ## Use
 
-1. Launch ClipNest and choose **Start Saving History**. It lives in your menu bar.
+1. Launch Copiary Clipboard and choose **Start Saving History**. It lives in your menu bar.
 2. Copy text or a link in any app.
 3. Press **⌥⌘V** or click the menu bar icon to open history.
-4. Click a clip, or use **↑ / ↓** and **Return**. ClipNest copies it and returns
+4. Click a clip, or use **↑ / ↓** and **Return**. Copiary Clipboard copies it and returns
    focus to your previous app. Press **⌘V** there to paste.
 5. **Escape** or a click outside closes the panel.
 
@@ -39,7 +39,7 @@ before enabling it.
   text formatting are outside version 1. Each clip is limited to 1 MiB of UTF-8.
 - Checks for changes about every 0.6 seconds while running. Very rapid copies
   between checks can be missed; clips copied while paused or quit are not saved.
-- On macOS versions with clipboard access controls, allow ClipNest under
+- On macOS versions with clipboard access controls, allow Copiary Clipboard under
   **System Settings → Privacy & Security → Paste from Other Apps** for background
   history. If access is denied, the app shows recovery instructions.
 - Uses a system hotkey registration, without Accessibility or Input Monitoring
@@ -48,7 +48,7 @@ before enabling it.
 ## Languages
 
 The interface follows your macOS language preference, including a language selected
-specifically for ClipNest in **System Settings → General → Language & Region → Applications**.
+specifically for Copiary Clipboard in **System Settings → General → Language & Region → Applications**.
 There are 18 interface localizations: English, Simplified Chinese, Traditional Chinese,
 Japanese, Korean, Spanish, Arabic, Portuguese (Brazil and Portugal), Malay, Vietnamese,
 Indonesian, French, German, Italian, Russian, Hindi, and Thai. Arabic uses a right-to-left
@@ -74,7 +74,7 @@ For an ad-hoc local build that needs no developer membership:
 xcodebuild -project ClipNest.xcodeproj -scheme ClipNest \
   -configuration Release -derivedDataPath build \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO build
-open build/Build/Products/Release/ClipNest.app
+open "build/Build/Products/Release/Copiary Clipboard.app"
 ```
 
 The committed Xcode project is ready to use. If changing project configuration,

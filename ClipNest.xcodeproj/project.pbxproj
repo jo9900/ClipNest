@@ -75,7 +75,7 @@
 		DF144924CA0F518EBF44348B /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		E163922F6D68C274404B96CC /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
 		E3F0CD1E8F07A7B405789BBC /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		E66038818791E9B31675A11C /* ClipNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E66038818791E9B31675A11C /* Copiary Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Copiary Clipboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31A09958B551BFCF9BDE9CF /* GlobalHotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHotKey.swift; sourceTree = "<group>"; };
 		F4169644F81672B4C9C190DC /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F97CEDAC367B621B55261FB4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		B1E5B365485CD77AF7546DC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E66038818791E9B31675A11C /* ClipNest.app */,
+				E66038818791E9B31675A11C /* Copiary Clipboard.app */,
 				9F5895BEAE77A17494391248 /* ClipNestTests.xctest */,
 			);
 			name = Products;
@@ -222,7 +222,7 @@
 			packageProductDependencies = (
 			);
 			productName = ClipNest;
-			productReference = E66038818791E9B31675A11C /* ClipNest.app */;
+			productReference = E66038818791E9B31675A11C /* Copiary Clipboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -505,6 +505,8 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jo9900.ClipNest;
+				PRODUCT_MODULE_NAME = ClipNest;
+				PRODUCT_NAME = "Copiary Clipboard";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -523,6 +525,8 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jo9900.ClipNest;
+				PRODUCT_MODULE_NAME = ClipNest;
+				PRODUCT_NAME = "Copiary Clipboard";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -540,7 +544,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jo9900.ClipNestTests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipNest.app/Contents/MacOS/ClipNest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Copiary Clipboard.app/Contents/MacOS/Copiary Clipboard";
 			};
 			name = Release;
 		};
@@ -557,7 +561,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jo9900.ClipNestTests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipNest.app/Contents/MacOS/ClipNest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Copiary Clipboard.app/Contents/MacOS/Copiary Clipboard";
 			};
 			name = Debug;
 		};
