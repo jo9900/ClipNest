@@ -30,5 +30,5 @@ passwords or other private text may be stored. Pause recording before copying th
 
 ## Contact
 
-For questions, [open a GitHub issue](https://github.com/jo9900/ClipNest/issues).
+For questions, [open a GitHub issue](https://github.com/jo9900/CopiaryClipboard/issues).
 Do not include your clipboard history or other private information in public issues.

@@ -44,8 +44,8 @@ screenshots, and submit the new build with that metadata.
 | Minimum macOS | 13.0 |
 | Download price | Free (0) |
 | In-app purchases / subscriptions | None |
-| Support URL | https://github.com/jo9900/ClipNest/issues |
-| Privacy policy URL | https://github.com/jo9900/ClipNest/blob/main/docs/privacy.md |
+| Support URL | https://github.com/jo9900/CopiaryClipboard/issues |
+| Privacy policy URL | https://github.com/jo9900/CopiaryClipboard/blob/main/docs/privacy.md |
 | Data collection | Data Not Collected; nothing leaves the device |
 | Keywords | clipboard,history,copy,paste,text,links,productivity,menu bar |
 
